@@ -30,18 +30,6 @@ app.get('/weather',(req,res)=>{
      }
 })
 
-// app.get('/currentWeather',(req,res)=>{
-//     if(req.query.latitude){
-//         address(req.query.latitude,req.query.longitude,(error,data)=>{
-//             if(data.locality){
-//                 forecast(data.locality,(error,data)=>{
-//                     return res.send
-//                 }
-//             }
-//         })
-//     }
-   
-// })
 app.get('/currentWeather',(req,res)=>{
     if(req.query.latitude){
         address(req.query.latitude,req.query.longitude,(error,data)=>{
