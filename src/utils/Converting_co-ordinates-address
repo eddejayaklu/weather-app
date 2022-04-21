@@ -1,0 +1,23 @@
+const request=require('request')
+
+const address=(latitude,longitude,callback)=>{
+    url=`http://api.positionstack.com/v1/reverse?access_key=09625be10745536bfcba1002c82ec952&query=${latitude},${longitude}&limit=1`
+    request({url:url,json:true},(error,response)=>{
+        
+        if(response.body.data[0].locality){
+        callback(undefined,{
+            locality:response.body.data[0].locality
+            })
+        }
+        else{
+            callback(undefined,{
+                county:response.body.data[0].county
+            })
+        }
+
+    })
+}
+
+
+module.exports=address
+
